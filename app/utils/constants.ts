@@ -1,4 +1,4 @@
-export const ITEMS_PER_PAGE = 9
+export const ITEMS_PER_PAGE = 3
 
 export const PLACEHOLDER_IMAGE = '/images/common/placeholder.png'
 
