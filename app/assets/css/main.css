@@ -67,13 +67,51 @@ h1, h2, h3, h4 {
     letter-spacing: -0.01em;
 }
 
-/* ---------- Типографика статей (markdown body из @nuxt/content) ---------- */
+/* ---------- Типографика статей (markdown body из @nuxt/content) ----------
+   Плагина @tailwindcss/typography в проекте нет — Tailwind Preflight
+   обнуляет margin/list-style у p/h1-h4/списков, поэтому вертикальный ритм
+   и маркеры списков задаём руками. */
 .prose {
     color: var(--text-dim);
     max-width: none;
 }
+.prose > * + * {
+    margin-top: 1.25em;
+}
+.prose > *:first-child {
+    margin-top: 0;
+}
 .prose :where(h1, h2, h3, h4) {
     color: var(--text);
+    margin-top: 2.25em;
+    margin-bottom: 0.15em;
+}
+.prose :where(h1, h2, h3, h4) + * {
+    margin-top: 0.75em;
+}
+.prose :where(h1) {
+    font-size: 1.75em;
+}
+.prose :where(h2) {
+    font-size: 1.4em;
+}
+.prose :where(h3) {
+    font-size: 1.15em;
+}
+.prose :where(h4) {
+    font-size: 1em;
+}
+.prose :where(ul, ol) {
+    padding-left: 1.4em;
+}
+.prose :where(ul) {
+    list-style: disc;
+}
+.prose :where(ol) {
+    list-style: decimal;
+}
+.prose :where(li) + :where(li) {
+    margin-top: 0.35em;
 }
 .prose :where(a) {
     color: var(--accent);
