@@ -1,0 +1,12 @@
+node_modules
+.nuxt
+.output
+.data
+dist
+.env
+.DS_Store
+*.log
+.idea
+
+# Черновик исходной идеи — не должен попадать в git (см. CLAUDE.md).
+draft/
