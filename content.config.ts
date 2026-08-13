@@ -1,25 +1,14 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { defineContentConfig, defineCollection } from '@nuxt/content'
+import { postSchema } from './scripts/lib/post-schema.mjs'
 
 export default defineContentConfig({
     collections: {
         post: defineCollection({
             source: 'post/**.md',
             type: 'page',
-            schema: z.object({
-                title: z.string(),
-                headline: z.string(),
-                date: z.date(),
-                excerpt: z.string().optional(),
-                description: z.string(),
-                image: z.string(),
-                imageAlt: z.string(),
-                imageCaption: z.string().optional(),
-                tags: z.array(z.string()),
-                categories: z.array(z.string()),
-                author: z.string(),
-                // Задел на будущее (Phase 7, PRD §6) — не используется в Phase 1.
-                telegramMessageUrl: z.string().optional(),
-            }),
+            // Схема вынесена в scripts/lib/post-schema.mjs — тот же контракт
+            // использует generate-post.mjs, чтобы не расходиться (PRD.md §7 Phase 2).
+            schema: postSchema,
         }),
     },
 })
