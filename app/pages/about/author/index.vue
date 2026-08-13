@@ -64,7 +64,6 @@
             <a href="https://www.linkedin.com/in/roman-palmin/" target="_blank" rel="noopener" class="text-accent hover:underline">LinkedIn</a>
             <NuxtLink
                 to="/cv"
-                target="_blank"
                 class="ml-auto rounded border border-border-strong px-3 py-1.5 font-medium text-text transition-colors hover:border-accent hover:text-accent"
             >
                 Полное резюме →
