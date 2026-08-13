@@ -1,5 +1,5 @@
 <template>
-    <div v-if="posts.length" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div v-if="posts.length" class="flex flex-col divide-y divide-border">
         <PostsCard
             v-for="post in posts"
             :key="post.path"
