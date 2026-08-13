@@ -6,13 +6,17 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "generate-post": "node scripts/generate-post.mjs"
   },
   "dependencies": {
+    "@napi-rs/canvas": "^1.0.6",
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "1.11.0",
     "better-sqlite3": "^12.5.0",
-    "nuxt": "^3.16.0"
+    "gray-matter": "^4.0.3",
+    "nuxt": "^3.16.0",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
