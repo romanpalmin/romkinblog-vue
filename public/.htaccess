@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Если запрошенный путь — не файл и не папка, и ещё не .html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !\.html$
+    # Добавляем .html к пути (один раз — условие выше не даёт применить
+    # правило повторно к уже переписанному запросу и уйти в петлю
+    # внутренних редиректов, из-за которой отсутствующие страницы
+    # отдавали 500 вместо 404)
+    RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
