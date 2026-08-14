@@ -1,11 +1,8 @@
 ---
 title: "Event loop не проблема, пока не станет: что делать с CPU-bound кодом в Node.js"
-headline: "Event loop не проблема, пока не станет: что делать с CPU-bound кодом в Node.js"
 description: "Разбор архитектурных вариантов, когда синхронная CPU-тяжёлая работа блокирует single-threaded event loop Node.js: worker_threads, cluster, вынос в отдельный сервис, чанкинг — с честными trade-off по каждому."
 excerpt: "Одна тяжёлая синхронная функция способна остановить весь сервер — не только тот запрос, который её вызвал. Вопрос не «баг ли это», а какой из вариантов решения подходит именно вашей нагрузке."
 date: 2026-08-11
-image: "/images/common/placeholder.png"
-imageAlt: "Схема: один CPU-bound колбэк на главном потоке блокирует всю очередь входящих запросов Node.js"
 tags: ["nodejs", "javascript", "architecture"]
 categories: ["dev"]
 author: "romkin"
