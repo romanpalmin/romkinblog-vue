@@ -1,16 +1,26 @@
 ---
-title: "Event Loop в Node.js: что реально спрашивают на сеньорском интервью"
-headline: "Event Loop в Node.js: что реально спрашивают на сеньорском интервью"
-description: "Разбор event loop в Node.js на уровне, который спрашивают на senior-собеседованиях: приоритет process.nextTick над микрозадачами, фазы цикла и разница с браузером."
-excerpt: "«Микротаски выполняются раньше макротасков» — это ответ junior-уровня. На senior спрашивают, что происходит между микротасками."
-date: 2026-08-10
-image: "/images/common/placeholder.png"
-imageAlt: "Схема event loop в Node.js: стек вызовов, очередь process.nextTick, очередь микрозадач, фазы цикла"
-tags: ["javascript", "nodejs", "interview"]
-categories: ["dev"]
-author: "romkin"
+title: 'Event Loop в Node.js: что реально спрашивают на сеньорском интервью'
+headline: 'Event Loop в Node.js: что реально спрашивают на сеньорском интервью'
+description: >-
+  Разбор event loop в Node.js на уровне, который спрашивают на
+  senior-собеседованиях: приоритет process.nextTick над микрозадачами, фазы
+  цикла и разница с браузером.
+excerpt: >-
+  «Микротаски выполняются раньше макротасков» — это ответ junior-уровня. На
+  senior спрашивают, что происходит между микротасками.
+date: 2026-08-10T00:00:00.000Z
+image: /images/posts/event-loop-nodejs/cover.png
+imageAlt: >-
+  Схема event loop в Node.js: стек вызовов, очередь process.nextTick, очередь
+  микрозадач, фазы цикла
+tags:
+  - javascript
+  - nodejs
+  - interview
+categories:
+  - dev
+author: romkin
 ---
-
 «Микротаски выполняются раньше макротасков» — этого достаточно для мидла. На senior-интервью
 чаще спрашивают то, что ломает эту упрощённую модель: что происходит, когда микрозадача сама
 порождает новую задачу, и почему в Node.js `process.nextTick` — это не то же самое, что

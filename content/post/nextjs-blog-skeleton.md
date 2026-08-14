@@ -1,16 +1,29 @@
 ---
-title: "Минимальный скелет блога на Next.js App Router: как файлы становятся страницами"
-headline: "Минимальный скелет блога на Next.js App Router: как файлы становятся страницами"
-description: "Разбор структуры романовского блога на Next.js 16: App Router, серверные и клиентские компоненты, MDX с zod-валидацией фронтматтера."
-excerpt: "В App Router файл — это не просто файл. Его имя (page.tsx, [slug], \"use client\") определяет, что именно он делает во время рендера."
-date: 2026-08-11
-image: "/images/common/placeholder.png"
-imageAlt: "Схема App Router: layout.tsx оборачивает page.tsx, динамический сегмент [slug] читает MDX-файл"
-tags: ["nextjs", "react", "frontend"]
-categories: ["frontend"]
-author: "romkin"
+title: >-
+  Минимальный скелет блога на Next.js App Router: как файлы становятся
+  страницами
+headline: >-
+  Минимальный скелет блога на Next.js App Router: как файлы становятся
+  страницами
+description: >-
+  Разбор структуры романовского блога на Next.js 16: App Router, серверные и
+  клиентские компоненты, MDX с zod-валидацией фронтматтера.
+excerpt: >-
+  В App Router файл — это не просто файл. Его имя (page.tsx, [slug], "use
+  client") определяет, что именно он делает во время рендера.
+date: 2026-08-11T00:00:00.000Z
+image: /images/posts/nextjs-blog-skeleton/cover.png
+imageAlt: >-
+  Схема App Router: layout.tsx оборачивает page.tsx, динамический сегмент [slug]
+  читает MDX-файл
+tags:
+  - nextjs
+  - react
+  - frontend
+categories:
+  - frontend
+author: romkin
 ---
-
 Каркас этого блога — не «шаблон из коробки», собран по шагам курса из голого `create-next-app`.
 Полезно разобрать, из чего он реально состоит: пять файлов, но каждый отвечает за свою роль
 в App Router, и роль определяется не содержимым, а именем и местом файла в дереве.
