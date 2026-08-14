@@ -2,6 +2,12 @@
     RewriteEngine On
     RewriteBase /
 
+    # Принудительный редирект на HTTPS — без этого правила сервер отдавал
+    # http:// напрямую с кодом 200, никак не подталкивая к защищённому
+    # соединению.
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     # Если запрошенный путь — не файл и не папка, и ещё не .html
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
