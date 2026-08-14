@@ -2,7 +2,7 @@
     <header class="sticky top-0 z-10 border-b border-border bg-bg/90 backdrop-blur-sm">
         <div class="mx-auto flex h-14 max-w-blog items-center justify-between px-4">
             <NuxtLink to="/" class="font-display text-lg font-medium text-text">
-                romkin.blog
+                romkin<span class="text-accent">.</span>blog
             </NuxtLink>
 
             <button
