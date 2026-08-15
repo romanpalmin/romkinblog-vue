@@ -32,20 +32,29 @@ const formattedDate = computed(() => {
 })
 
 // OG/Twitter meta-паритет с romkinblogsimple (PRD.md §7) — перенесено дословно.
+// og:image/twitter:image требуют абсолютный URL (спецификация Open Graph) —
+// content/post/*.md хранит относительный путь, скрейперы (в т.ч. Telegram)
+// молча дропают превью или картинку, если адрес не абсолютный.
+const ogImageUrl = computed(() => {
+    const image = page.value?.image
+    if (!image) return 'https://romkin.blog/default-og-image.jpg'
+    return image.startsWith('http') ? image : `https://romkin.blog${image}`
+})
+
 useHead({
     title: page.value.title || 'Статья — romkin.blog',
     meta: [
         { name: 'description', content: page.value.description || page.value.excerpt || 'Статья на блоге romkin.blog' },
         { property: 'og:title', content: page.value.title || 'Статья — romkin.blog' },
         { property: 'og:description', content: page.value.description || page.value.excerpt || 'Статья на блоге romkin.blog' },
-        { property: 'og:image', content: page.value.image || 'https://romkin.blog/default-og-image.jpg' },
+        { property: 'og:image', content: ogImageUrl.value },
         { property: 'og:url', content: `https://romkin.blog${route.path}` },
         { property: 'og:site_name', content: 'romkin.blog' },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: page.value.title || 'Статья — romkin.blog' },
         { name: 'twitter:description', content: page.value.description || page.value.excerpt || 'Статья на блоге romkin.blog' },
-        { name: 'twitter:image', content: page.value.image || 'https://romkin.blog/default-og-image.jpg' },
+        { name: 'twitter:image', content: ogImageUrl.value },
         { name: 'author', content: page.value.author || 'romkin.blog' },
         { name: 'article:published_time', content: page.value.date ? new Date(page.value.date).toISOString() : '' },
         { name: 'keywords', content: page.value.tags?.join(', ') || '' },
