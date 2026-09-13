@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-const { posts, totalPages } = await usePaginatedPosts({ cacheKey: 'posts-live-1', page: 1 })
+const { posts, totalPages } = await usePaginatedPosts({ cacheKey: 'posts-dev-1', page: 1, category: 'dev' })
 
 useHead({
     title: 'romkin.blog',

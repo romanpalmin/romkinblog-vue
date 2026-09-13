@@ -10,8 +10,9 @@ const route = useRoute()
 const currentPage = computed(() => Math.max(1, parseInt(route.params.page as string) || 1))
 
 const { posts, totalPages } = await usePaginatedPosts({
-    cacheKey: `posts-live-${currentPage.value}`,
+    cacheKey: `posts-dev-${currentPage.value}`,
     page: currentPage.value,
+    category: 'dev',
 })
 
 if (currentPage.value > totalPages) {
