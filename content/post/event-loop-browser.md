@@ -131,4 +131,4 @@ console.log('H');
 
 ---
 
-💬 **Обсудить статью можно в [Telegram-канале →](https://t.me/romkin_blog/5)**
+💬 &nbsp;**Обсудить статью можно в [Telegram-канале →](https://t.me/romkin_blog/5)**
