@@ -6,7 +6,7 @@
             :aria-label="isDark ? 'Включить светлую тему' : 'Включить тёмную тему'"
             @click="colorMode.preference = isDark ? 'light' : 'dark'"
         >
-            <span class="font-mono text-base">{{ isDark ? '☾' : '☀' }}</span>
+            <span class="font-mono text-lg">{{ isDark ? '☾' : '☀' }}</span>
         </button>
         <template #fallback>
             <div class="h-8 w-8 rounded-full border border-border-strong" />
