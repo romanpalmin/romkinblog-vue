@@ -1,5 +1,5 @@
 <template>
-    <figure class="quote-block relative my-8 rounded border border-border bg-bg-raised px-6 py-6 sm:px-10 sm:py-7">
+    <figure class="quote-block relative my-8 rounded border border-border bg-bg-raised px-6 pb-5 pt-9 sm:px-10 sm:pb-6 sm:pt-10">
         <span class="quote-glyph" aria-hidden="true">&ldquo;</span>
 
         <blockquote class="quote-body relative font-display text-lg italic leading-relaxed text-text sm:text-xl">
@@ -65,7 +65,7 @@ const sourceLabel = computed(() => {
 .quote-glyph {
     @apply font-display;
     position: absolute;
-    top: -0.35rem;
+    top: 0.35rem;
     left: 1.1rem;
     font-size: 4.5rem;
     line-height: 1;
@@ -94,12 +94,18 @@ const sourceLabel = computed(() => {
    обычный markdown `---` внутри блока, вместо горизонтальной черты
    показываем «[…]» как принятое в редактуре обозначение пропуска. */
 .quote-body :deep(hr) {
-    /* UA-стили задают hr height:0 (implied by border-only rendering)
-       и overflow: hidden — без сброса обоих ::before с текстом «[…]»
-       обрезался бы по нулевой высоте самого hr. Высота теперь берётся
-       из содержимого ::before (height: auto по умолчанию). */
+    /* Tailwind Preflight сам задаёт hr { height: 0 } (расчёт на то, что
+       высоту даёт только border-top) — без явного height: auto контент
+       ::before схлопывался в нулевую высоту и вылезал через overflow:
+       visible несимметрично (почти весь «уходил» вверх из-за padding-top,
+       снизу почти ничего не оставалось). Отступ — через padding, а не
+       margin: margin соседних p/hr схлопывается по правилам CSS
+       непредсказуемо, padding не схлопывается — гарантированно одинаковый
+       отступ сверху и снизу. */
+    height: auto;
     overflow: visible;
-    margin: 0.85em 0;
+    margin: 0;
+    padding: 0.85em 0;
     border: none;
 }
 
@@ -108,6 +114,7 @@ const sourceLabel = computed(() => {
     display: block;
     font-style: normal;
     font-size: 0.8em;
+    line-height: 1;
     letter-spacing: 0.05em;
     color: var(--text-faint);
 }
