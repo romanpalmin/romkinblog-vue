@@ -59,6 +59,20 @@ An event loop has one or more task queues, a microtask queue, and other state as
 Иногда цитата важна сама по себе, без указания источника.
 ::
 
+## Несколько несмежных фрагментов одного источника
+
+Разрыв между кусками цитаты, которые в оригинале идут не подряд (между ними
+что-то пропущено), обозначается обычным markdown-разделителем `---` внутри
+блока — компонент рисует его не как горизонтальную черту, а как «[…]».
+
+::Quote{author="Из спецификации" source="WHATWG HTML Standard" link="https://html.spec.whatwg.org/multipage/webappapis.html#event-loops"}
+Each agent has an associated event loop, and each event loop processes tasks and microtasks.
+
+---
+
+Rendering opportunities are also processed as part of the event loop, but only when there are no more tasks or microtasks left to process.
+::
+
 ## Многоабзацная цитата
 
 ::Quote{author="Тестовый абзац" date="для проверки вертикального ритма"}

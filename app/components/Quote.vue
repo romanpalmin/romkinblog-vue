@@ -86,6 +86,24 @@ const sourceLabel = computed(() => {
     margin-top: 0.75em;
 }
 
+/* Разрыв между несмежными фрагментами одной цитаты — автор пишет
+   обычный markdown `---` внутри блока, вместо горизонтальной черты
+   показываем «[…]» как принятое в редактуре обозначение пропуска. */
+.quote-body :deep(hr) {
+    height: 0;
+    margin: 0.85em 0;
+    border: none;
+}
+
+.quote-body :deep(hr)::before {
+    content: '[…]';
+    display: block;
+    font-style: normal;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+}
+
 .quote-note {
     padding-left: 2.25rem;
 }
