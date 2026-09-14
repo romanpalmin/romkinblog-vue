@@ -75,6 +75,10 @@ const sourceLabel = computed(() => {
 }
 
 .quote-body {
+    /* Сбрасываем border-left/padding-left от глобального .prose blockquote
+       (main.css) — у Quote своё, более широкое оформление слева, из-за
+       двух правил получалась двойная полоса. */
+    border-left: none;
     padding-left: 2.25rem;
 }
 
@@ -90,7 +94,11 @@ const sourceLabel = computed(() => {
    обычный markdown `---` внутри блока, вместо горизонтальной черты
    показываем «[…]» как принятое в редактуре обозначение пропуска. */
 .quote-body :deep(hr) {
-    height: 0;
+    /* UA-стили задают hr height:0 (implied by border-only rendering)
+       и overflow: hidden — без сброса обоих ::before с текстом «[…]»
+       обрезался бы по нулевой высоте самого hr. Высота теперь берётся
+       из содержимого ::before (height: auto по умолчанию). */
+    overflow: visible;
     margin: 0.85em 0;
     border: none;
 }
