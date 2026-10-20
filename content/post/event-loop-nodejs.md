@@ -393,4 +393,4 @@ async function processAll(items) {
 
 ---
 
-💬 &nbsp;**Обсудить статью можно в [Telegram-канале →](https://t.me/romkin_blog)**
+💬 &nbsp;**Обсудить статью можно в [Telegram-канале →](https://t.me/romkin_blog/8)**
