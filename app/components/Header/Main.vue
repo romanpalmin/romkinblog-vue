@@ -27,7 +27,7 @@
 
             <nav class="hidden items-center gap-6 md:flex">
                 <NuxtLink
-                    v-for="link in NAV_LINKS"
+                    v-for="link in navLinks"
                     :key="link.url"
                     :to="link.url"
                     class="text-sm font-medium text-text-dim transition-colors hover:text-accent"
@@ -43,7 +43,7 @@
         <transition name="fade">
             <nav v-show="isMenuOpen" class="flex flex-col gap-4 border-t border-border px-4 py-4 md:hidden">
                 <NuxtLink
-                    v-for="link in NAV_LINKS"
+                    v-for="link in navLinks"
                     :key="link.url"
                     :to="link.url"
                     class="text-sm font-medium text-text-dim"
@@ -64,6 +64,17 @@
 import { NAV_LINKS } from '~/utils/constants'
 
 const isMenuOpen = ref(false)
+
+// Пока все статьи в категории dev, лента Live совпадает с Dev — ссылку прячем,
+// она появится сама, как только выйдет пост без категории dev.
+const { data: hasNonDevPosts } = await useAsyncData('has-non-dev-posts', async () => {
+    const all = await queryCollection('post').select('categories').all()
+    return all.some(post => !post.categories?.includes('dev'))
+})
+
+const navLinks = computed(() =>
+    NAV_LINKS.filter(link => link.url !== '/live' || hasNonDevPosts.value),
+)
 </script>
 
 <style scoped>
